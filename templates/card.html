@@ -1,12 +1,18 @@
 {% load static %}
+<link type="text/css" rel="stylesheet" href="{% static "styles.css" %}" media="screen,projection" />
 
 <div class="card">
     <img class="card-img-top" src="{% static 'sample.jpg' %}" alt="sample Image">
     <div class="card-body">
-        <h5 class="card-title">Product Title</h5>
-        <h5 class="card-date">11/08/2021</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-            card's content.</p>
+        <h5 class="card-title">
+            {{ plant.area}}
+        </h5>
+        <p class="card-text">
+            {{ plant.description }}
+        </p>
+        <div class="btn btn-warning btn-sm text-white">{{ plant.stars }}</div>
+        <div class="badge badge-pill badge-primary ml-2">{{ plant.created_at }}</div>
+        <div class="badge badge-pill badge-danger ml-2">{{ plant.user }}</div>
 
     </div>
 </div>
