@@ -5,4 +5,4 @@ from django.db import models
 class User(AbstractUser):
 
     def __str__(self):
-        return 'User: ' + str(self.first_name)
+        return 'User: ' + str(self.username)
