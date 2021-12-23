@@ -6,4 +6,4 @@ from django.views import View
 
 class Login(LoginView):
     login_url = '/login/'
-    redirect_field_name = '/app/home/'
+    redirect_field_name = '/home/'

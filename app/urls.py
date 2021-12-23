@@ -5,6 +5,7 @@ from users.views import *
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
+    path('', HomeView.as_view(), name='home'),
     path('home/', HomeView.as_view(), name='home'),
 ]
 
