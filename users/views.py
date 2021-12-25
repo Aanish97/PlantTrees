@@ -1,5 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import render
 from django.views import View
 from django.views.generic import TemplateView
@@ -8,8 +8,13 @@ from users.models import User
 
 
 class Login(LoginView):
-    login_url = '/login/'
+    login_url = '/users/login/'
     redirect_field_name = '/home/'
+
+
+class Logout(LogoutView):
+    next_page = '/users/login/'
+    redirect_field_name = '/users/login/'
 
 
 class Register(TemplateView):
