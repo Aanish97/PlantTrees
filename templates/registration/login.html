@@ -1,39 +1,48 @@
-<div>
-    {% include "base_generic.html" %}
+<!DOCTYPE html>
+<html lang="en" background-img>
 
-    {% block content %}
+    <head>
+        <title>Login</title>
+        {% include "header.html" %}
+    </head>
+    <body class="back">
+        {% include "base_generic.html" %}
 
-        {% if form.errors %}
-            <p>Your username and password didn't match. Please try again.</p>
-        {% endif %}
+        {% block content %}
 
-        {% if next %}
-            {% if user.is_authenticated %}
-                <p>Your account doesn't have access to this page. To proceed,
-                    please login with an account that has access.</p>
-            {% else %}
-                <p>Please login to see this page.</p>
-            {% endif %}
-        {% endif %}
+        <div class="container">
 
-        <form method="post" action="{% url 'custom_login' %}">
-            {% csrf_token %}
-            <table>
-                <tr>
-                    <td>{{ form.username.label_tag }}</td>
-                    <td>{{ form.username }}</td>
-                </tr>
-                <tr>
-                    <td>{{ form.password.label_tag }}</td>
-                    <td>{{ form.password }}</td>
-                </tr>
-            </table>
-            <input type="submit" value="login"/>
-            <input type="hidden" name="/home/" value="/home/"/>
-        </form>
+            <h2 class="alert-success col-8 offset-2 p-2 d-flex justify-content-center green-text">Lets Go Green!</h2>
+            <h3 class="d-flex justify-content-center">Login</h3>
+            <div class="jumbotron m-5">
+                {% if form.errors %}
+                    <h6 class="alert-danger col-4 p-2 offset-4">Your username and password didn't match. Please try again.</h6>
+                {% endif %}
+                <form class="" method="post" action="{% url 'custom_login' %}">
+                    {% csrf_token %}
+                    <table class="col-4 offset-4">
+                        <tr class="">
+                            <td>{{ form.username.label_tag }}</td>
+                            <td>{{ form.username }}</td>
+                        </tr>
+                        <tr class="">
+                            <td>{{ form.password.label_tag }}</td>
+                            <td>{{ form.password }}</td>
+                        </tr>
+                    </table>
+                    <div class="col offset-8 mt-4">
+                        <input class='btn btn-primary' type="submit" value="login"/>
+                        <input type="hidden" name="/home/" value="/home/"/>
+                        <a class="btn btn-danger" href="{% url 'register' %}">Create Account</a>
+                    </div>
+                </form>
+            </div>
+        </div>
 
         {# Assumes you setup the password_reset view in your URLconf #}
-        <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+{#        <p><a href="{% url 'password_reset' %}">Lost password?</a></p>#}
 
     {% endblock %}
-</div>
+    </body>
+
+</html>

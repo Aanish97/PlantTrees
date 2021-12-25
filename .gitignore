@@ -8,3 +8,4 @@ local_settings.py
 static
 .DS_Store
 boot/
+uploads/

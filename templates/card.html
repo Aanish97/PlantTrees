@@ -1,18 +1,23 @@
 {% load static %}
 <link type="text/css" rel="stylesheet" href="{% static "styles.css" %}" media="screen,projection" />
 
-<div class="card">
-    <img class="card-img-top" src="{% static 'sample.jpg' %}" alt="sample Image">
+<span class="card mb-4">
+    {% if plant.file %}
+        <img class="card-img-top h-25" src="{{ plant.file }}">
+    {% else %}
+        <img class="card-img-top" alt="sample">
+    {% endif %}
+
     <div class="card-body">
         <h5 class="card-title">
             {{ plant.area}}
         </h5>
-        <p class="card-text">
-            {{ plant.description }}
-        </p>
         <div class="btn btn-warning btn-sm text-white">{{ plant.stars }}</div>
         <div class="badge badge-pill badge-primary ml-2">{{ plant.created_at }}</div>
         <div class="badge badge-pill badge-danger ml-2">{{ plant.user }}</div>
+        <p class="card-text">
+            {{ plant.description }}
+        </p>
 
     </div>
-</div>
+</span>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        {% load static %}
+        {% include "header.html" %}
+
+    </head>
+
+    <body>
+        {% include 'navbar.html' %}
+
+        <div class="container">
+
+            <h3>Create a Post</h3>
+
+            {% if success %}
+                <h6 class="alert-success col-4 container">{{ success }}</h6>
+            {% endif %}
+            {% if error %}
+                <h6 class="alert-danger col-4 container">{{ error }}</h6>
+            {% endif %}
+
+            <div class="jumbotron">
+
+            {% include 'post.html' %}
+
+
+            </div>
+        </div>
+
+    </body>
+</html>
